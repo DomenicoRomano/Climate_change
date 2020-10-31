@@ -38,7 +38,7 @@ tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
 specificity = tn / (tn+fp)
 sensitivity = tp / (tp + fn)
 
-# Now print to file
+## Now print to file
 with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)
 
