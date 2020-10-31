@@ -18,7 +18,7 @@ df = pd.read_csv("data_processed.csv")
 y = df.pop("cons_general").to_numpy()
 y[y< 4] = 0
 y[y>= 4] = 1
-
+#
 X = df.to_numpy()
 X = preprocessing.scale(X) # Is standard
 # Impute NaNs
@@ -38,7 +38,7 @@ tn, fp, fn, tp = confusion_matrix(y, yhat).ravel()
 specificity = tn / (tn+fp)
 sensitivity = tp / (tp + fn)
 
-# Now print to file
+## Now print to file
 with open("metrics.json", 'w') as outfile:
         json.dump({ "accuracy": acc, "specificity": specificity, "sensitivity":sensitivity}, outfile)
 
